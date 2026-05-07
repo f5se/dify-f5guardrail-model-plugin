@@ -59,14 +59,13 @@ This repository is set up to be developed inside a `conda` environment.
 ```bash
 conda create -n dify-f5-guardrail python=3.12 -y
 conda activate dify-f5-guardrail
-pip install -r f5_guardrail/requirements.txt
+pip install -r requirements.txt
 ```
 
 
 ### Run unit tests
 
 ```bash
-cd f5_guardrail
 python -m pytest tests
 ```
 
@@ -75,7 +74,6 @@ The tests stub out the Guardrail SDK so they run offline.
 ### Debug against a Dify instance
 
 ```bash
-cd f5_guardrail
 cp .env.example .env
 # fill REMOTE_INSTALL_HOST / REMOTE_INSTALL_KEY from Dify > Plugins > Debug
 # set PLUGIN_LOG_ENABLED=true only when you want runtime logs
@@ -85,7 +83,7 @@ python -m main
 ## Packaging
 
 ```bash
-dify plugin package f5_guardrail
+dify plugin package .
 ```
 
 The resulting `*.difypkg` can be installed directly into a Dify instance.

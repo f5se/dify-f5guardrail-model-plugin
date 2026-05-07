@@ -53,7 +53,7 @@
 ```bash
 conda create -n dify-f5-guardrail python=3.12 -y
 conda activate dify-f5-guardrail
-pip install -r f5_guardrail/requirements.txt
+pip install -r requirements.txt
 ```
 
 > `calypsoai` 由 F5 发布，可能位于私有源或以 wheel 包形式提供。请在环境
@@ -62,7 +62,6 @@ pip install -r f5_guardrail/requirements.txt
 ### 运行单元测试
 
 ```bash
-cd f5_guardrail
 python -m pytest tests
 ```
 
@@ -71,7 +70,6 @@ python -m pytest tests
 ### 与 Dify 联调
 
 ```bash
-cd f5_guardrail
 cp .env.example .env
 # 在 Dify 控制台 > 插件 > 调试 中获取 REMOTE_INSTALL_HOST / REMOTE_INSTALL_KEY
 # 仅在需要排查问题时设置 PLUGIN_LOG_ENABLED=true 打开运行日志
@@ -81,7 +79,7 @@ python -m main
 ## 打包发布
 
 ```bash
-dify plugin package f5_guardrail
+dify plugin package .
 ```
 
 打包出的 `*.difypkg` 文件可直接上传安装到 Dify。
