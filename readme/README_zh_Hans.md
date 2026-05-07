@@ -83,3 +83,6 @@ dify plugin package .
 ```
 
 打包出的 `*.difypkg` 文件可直接上传安装到 Dify。
+
+## 源代码
+https://github.com/f5se/dify-f5guardrail-model-plugin

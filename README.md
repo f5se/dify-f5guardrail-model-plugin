@@ -87,3 +87,7 @@ dify plugin package .
 ```
 
 The resulting `*.difypkg` can be installed directly into a Dify instance.
+
+
+## Source code
+https://github.com/f5se/dify-f5guardrail-model-plugin
