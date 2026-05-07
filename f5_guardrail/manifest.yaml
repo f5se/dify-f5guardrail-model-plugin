@@ -1,0 +1,30 @@
+version: 0.0.2
+type: plugin
+name: f5_guardrail
+author: f5
+created_at: "2026-05-07T00:00:00Z"
+icon: icon.svg
+label:
+  en_US: F5 Guardrail
+  zh_Hans: F5 Guardrail
+description:
+  en_US: F5 Guardrail (CalypsoAI) prompts API as a Dify model provider. Routes prompts through F5 Guardrail's scanners and returns either the underlying LLM response or a blocked notice.
+  zh_Hans: 将 F5 Guardrail（CalypsoAI）prompts 接口接入 Dify 作为模型供应商。所有 prompt 会先经 F5 Guardrail 扫描，根据扫描结果返回 LLM 回复或阻断提示。
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: true
+      llm: true
+plugins:
+  models:
+    - provider/f5_guardrail.yaml
+meta:
+  version: 0.0.2
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main

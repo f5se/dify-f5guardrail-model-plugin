@@ -1,0 +1,48 @@
+# OS / Editor
+.DS_Store
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+.envrc
+
+# Conda
+.conda/
+
+# Env files / secrets
+.env
+.env.*
+!.env.example
+
+# Test / cache / coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+*.difypkg
+
+# Logs
+*.log
+
+f5_guardrail_dify插件规划_fd55a9fb.plan.md
+开发参考材料
+guardrail-response.txt
+
+scripts/*

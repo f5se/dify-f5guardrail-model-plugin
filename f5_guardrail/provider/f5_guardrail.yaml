@@ -1,0 +1,123 @@
+provider: f5_guardrail
+label:
+  en_US: F5 Guardrail
+  zh_Hans: F5 Guardrail
+description:
+  en_US: F5 Guardrail (CalypsoAI) prompts API. Sends prompts through Guardrail scanners before reaching the LLM.
+  zh_Hans: 通过 F5 Guardrail（CalypsoAI）prompts 接口调用 LLM。所有提示词会先经 Guardrail 扫描器审查，实现有保护的模型调用。
+icon_small:
+  en_US: icon_s_en.svg
+icon_large:
+  en_US: icon_l_en.svg
+background: "#E6F0FF"
+help:
+  title:
+    en_US: Get your F5 AI Security token / provider / project
+    zh_Hans: 获取 F5 AI Security 的 token / provider / project
+  url:
+    en_US: https://docs.aisecurity.f5.com/api-docs/first-steps.html
+supported_model_types:
+  - llm
+configurate_methods:
+  - predefined-model
+provider_credential_schema:
+  credential_form_schemas:
+    - variable: calypsoai_url
+      label:
+        en_US: F5 Guardrail Base URL
+        zh_Hans: F5 Guardrail 基础地址
+      type: text-input
+      required: true
+      default: https://www.us1.calypsoai.app
+      placeholder:
+        en_US: e.g. https://www.us1.calypsoai.app
+        zh_Hans: 例如 https://www.us1.calypsoai.app
+    - variable: calypsoai_token
+      label:
+        en_US: F5 Guardrail Token
+        zh_Hans: F5 Guardrail Token
+      type: secret-input
+      required: true
+      placeholder:
+        en_US: Paste the token generated in F5 AI Security
+        zh_Hans: 粘贴在 F5 AI Security 中生成的 token
+    - variable: calypsoai_provider
+      label:
+        en_US: Provider (name or ID, optional)
+        zh_Hans: Provider（名称或ID，可选）
+      type: text-input
+      required: false
+      placeholder:
+        en_US: Optional provider name or ID configured in F5 Guardrail
+        zh_Hans: F5 Guardrail 中配置的 provider 名称或 ID（可选）
+    - variable: calypsoai_project
+      label:
+        en_US: Project (ID or friendly ID, optional)
+        zh_Hans: Project（ID 或 friendly ID，可选）
+      type: text-input
+      required: false
+      placeholder:
+        en_US: Optional project ID or friendly ID configured in F5 Guardrail
+        zh_Hans: F5 Guardrail 中配置的 project ID 或 friendly ID（可选）
+    - variable: blocked_response_mode
+      label:
+        en_US: Blocked Response Mode
+        zh_Hans: 阻断响应模式
+      type: select
+      required: true
+      default: message
+      options:
+        - value: message
+          label:
+            en_US: Return blocked notice as assistant message
+            zh_Hans: 作为助手消息返回阻断提示
+        - value: error
+          label:
+            en_US: Raise an invocation error (Dify shows error)
+            zh_Hans: 抛出调用错误（Dify 显示错误）
+    - variable: message_check_scope
+      label:
+        en_US: Guardrail Check Scope
+        zh_Hans: Guardrail 检查范围
+      type: select
+      required: true
+      default: full-conversation
+      options:
+        - value: full-conversation
+          label:
+            en_US: Full conversation (multi-turn)
+            zh_Hans: 多轮会话（完整上下文）
+        - value: latest-user-message
+          label:
+            en_US: Latest user message only
+            zh_Hans: 仅最新用户消息
+    - variable: blocked_message_template
+      label:
+        en_US: Blocked Message Template
+        zh_Hans: 阻断提示模板
+      type: text-input
+      required: false
+      default: "[F5 Guardrail] 请求被阻断：{reason}"
+      placeholder:
+        en_US: "Use {reason} placeholder for blocked details"
+        zh_Hans: 使用 {reason} 占位符插入阻断原因
+    - variable: request_timeout_seconds
+      label:
+        en_US: Request Timeout (seconds)
+        zh_Hans: 请求超时（秒）
+      type: text-input
+      required: false
+      default: "60"
+      placeholder:
+        en_US: e.g. 60
+        zh_Hans: 例如 60
+models:
+  llm:
+    predefined:
+      - "models/llm/*.yaml"
+    position: "models/llm/_position.yaml"
+extra:
+  python:
+    provider_source: provider/f5_guardrail.py
+    model_sources:
+      - "models/llm/llm.py"

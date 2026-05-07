@@ -1,0 +1,9 @@
+model: f5-guardrail
+label:
+  en_US: F5 Guardrail (Secure Model Proxy)
+  zh_Hans: F5 Guardrail（安全模型代理）
+model_type: llm
+model_properties:
+  mode: chat
+  context_size: 32768
+parameter_rules: []
