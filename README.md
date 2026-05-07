@@ -62,8 +62,6 @@ conda activate dify-f5-guardrail
 pip install -r f5_guardrail/requirements.txt
 ```
 
-> The `calypsoai` package is distributed by F5 and may require a private index
-> or wheel. Install it manually inside the environment after creating it.
 
 ### Run unit tests
 
