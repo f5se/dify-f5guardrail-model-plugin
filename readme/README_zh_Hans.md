@@ -56,8 +56,8 @@ conda activate dify-f5-guardrail
 pip install -r requirements.txt
 ```
 
-> `calypsoai` 由 F5 发布，可能位于私有源或以 wheel 包形式提供。请在环境
-> 创建完成后手工安装。
+`requirements.txt` 已包含 `calypsoai` 的在线 wheel URL，常规情况下直接执行
+`pip install -r requirements.txt` 即可完成安装。
 
 ### 运行单元测试
 
